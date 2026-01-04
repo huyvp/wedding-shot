@@ -1,26 +1,57 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --brutal-border: 4px solid #000;
+  --brutal-shadow: 8px 8px 0px 0px #000;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f3f3f3;
+  color: #000;
+  font-family: 'Lexend', sans-serif;
+}
+
+.snap-container {
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.snap-container::-webkit-scrollbar { display: none; }
+
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh; /* Fit chiều cao màn hình */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Tránh nội dung chạm sát viền màn hình */
+}
+
+.neo-card {
+  background: white;
+  border: var(--brutal-border);
+  box-shadow: var(--brutal-shadow);
+  padding: 24px; /* Tăng padding để chữ không sát border */
+}
+
+.neo-badge {
+  background: #57cc99;
+  color: #fff;
+  border: 3px solid #000;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 4px 12px;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0px 0px #000;
+}
+
+/* Hiệu ứng tiêu đề nổi bật */
+.text-outline {
+  -webkit-text-stroke: 1.5px black;
+  color: white;
 }
